@@ -1,0 +1,116 @@
+<div class="home-container">
+  <!--nav-->
+
+  <div class="home-container1">
+    <app-sidenav></app-sidenav>
+
+    <div class="mat-card">
+      <div class="container" style="margin:20px;">
+        <div class="row" style="margin-bottom: 20px;">
+          <div class="col-sm">
+            <div class="box-image" [style.background-image]="'url(' + this.event?.imageString + ')'">
+            </div>
+          </div>
+
+          <div class="col-sm">
+
+            <p class="mb-xxl-4" style="font-size: 40px; font-style: italic">{{this.event?.name}}</p>
+            <p class="mb-xxl-4" style="font-size: 20px;">Location: {{this.event?.location?.name}}</p>
+            <p class="mb-xxl-4" style="font-size: 20px;">Address: {{this.event?.location?.address}}
+              , {{this.event?.location?.county}}, {{this.event?.location?.city}} </p>
+            <p class="mb-xxl-4" style="font-size: 20px;">Date: {{this.event?.date}}</p>
+            <p class="mb-xxl-4" style="font-size: 20px;">Time: {{this.event?.hour}}</p>
+            <p class="mb-xxl-3" style="font-size: 20px;" *ngIf="isAdmin">Organizer
+              Name: {{this.organizer?.firstName}} {{this.organizer?.lastName}}</p>
+            <p class="mb-xxl-3" style="font-size: 20px;" *ngIf="isAdmin">Organizer contact: {{this.organizer?.email}}</p>
+
+            <button mat-icon-button *ngIf="isOrganizerOrAdmin"
+                    (click)="editEvent(event, $event)">
+              <i class="bi bi-pencil-fill" style="color:#342f67;"></i>
+            </button>
+
+            <button mat-icon-button (click)="deleteEvent()" *ngIf="isOrganizerOrAdmin">
+              <i class="bi bi-trash3-fill" style="color: #f44336;"></i>
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-left: 20px; margin-right: 20px;">
+        <br>
+        <div id="id-description" style="font-size: 20px; text-align: justify; font-family: 'Monaco'"></div>
+        <br>
+
+        <!--          tickets-->
+        <mat-card class="mat-card-tickets">
+          <mat-card-header>
+            <mat-card-title class="mb-xxl-5" style="font-size: 30px;">Tickets</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content>
+            <div class="row" style="margin-bottom: 20px;">
+              <div class="col-sm-3 container-ticket" *ngIf="event && event.tickets.length>0">
+                <mat-card-subtitle class="column-ticket mb-xxl-3">
+                  Standard Ticket
+                </mat-card-subtitle>
+              </div>
+
+              <div class="col-sm-3 container-ticket">
+                <mat-card-subtitle class="column-ticket mb-xxl-3">
+                  {{ (event && event.tickets && event.tickets[0]) ? event.tickets[0].price : 'free' }} {{ (event && event.tickets && event.tickets[0]) ? 'RON' : 'entrance' }}
+                </mat-card-subtitle>
+              </div>
+
+
+              <div class="col-sm-3 container-ticket"
+                   *ngIf="event && event.tickets.length>0 && event.availableTickets!==undefined && event.soldTickets!==undefined
+                      && event.availableTickets-event.soldTickets>0">
+                <mat-card-subtitle class="column-ticket mb-xxl-3">
+                  <span
+                    *ngIf="event && event.tickets.length>0 && event.availableTickets!==undefined && event.soldTickets!==undefined">
+                    {{this.event.availableTickets - this.event.soldTickets}}
+                    tickets left</span>
+<!--                  <span-->
+<!--                    *ngIf="event && event.tickets.length==0 && event.availableTickets!==undefined && event.soldTickets!==undefined">-->
+<!--                    {{this.event.availableTickets - this.event.soldTickets}}-->
+<!--                    locuri ramase</span>-->
+                </mat-card-subtitle>
+              </div>
+
+
+              <div class="col-sm-3 container-ticket"
+                   *ngIf="!isOrganizerOrAdmin && event && event.tickets.length>0 && event.availableTickets!==undefined && event.soldTickets!==undefined
+                      && event.availableTickets-event.soldTickets>0">
+                <mat-card-subtitle class="column-ticket mb-xxl-3">
+
+                  <input
+                    [(ngModel)]="noTickets"
+                    *ngIf="event && event.tickets.length>0 && event.availableTickets!==undefined && event.soldTickets!==undefined"
+                    required
+                    min="1"
+                    [max]="this.event.availableTickets-this.event.soldTickets"
+                    type="number"
+                    style="width: 70px; margin-right: 10px;">
+
+                  <button mat-raised-button *ngIf="event && event.tickets.length>0" (click)="buyTickets()">Buy</button>
+                </mat-card-subtitle>
+
+              </div>
+
+
+            </div>
+
+          </mat-card-content>
+
+        </mat-card>
+
+        <br>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

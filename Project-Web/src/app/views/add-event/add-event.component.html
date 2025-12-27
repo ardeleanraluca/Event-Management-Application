@@ -1,0 +1,163 @@
+<div class="home-container">
+  <div class="home-container1">
+    <app-sidenav></app-sidenav>
+    <div class="home-container2">
+      <span class="home-login">
+       Create event
+      </span>
+      <img
+        alt="image"
+        src="/assets/images/Fun-With-Friends.png"
+        class="home-image"
+      />
+      <form [formGroup]="createEventForm" (ngSubmit)="onClick()" ngNativeValidate>
+        <div class="home-form">
+          <span class="home-label" style=" left: 2px; top: -96px;">Name</span>
+          <input
+            matInput
+            required
+            name="name"
+            type="text"
+            [formControlName]="'name'"
+            placeholder="Name"
+            class="home-nume1 input"
+          >
+
+          <span class="home-label" style=" left: 350px; top: -96px;">Description</span>
+          <textarea
+            required
+            rows="5"
+            name="description"
+            [formControlName]="'description'"
+            placeholder="Description"
+            class="home-nume2"></textarea>
+
+          <span class="home-label" style=" left: 2px; top: -26px;">Category</span>
+          <select
+            [(ngModel)]="selectedCategory"
+            [required]="!categoryInput"
+            name="category"
+            (change)="onCategorySelected()"
+            [ngClass]="{'selectedCategory': isSelectedCategory}"
+            [formControlName]="'category'"
+            class="home-select">
+            <option value="">Select your category</option>
+            <option *ngFor="let category of categories" [ngValue]="category">{{category}}</option>
+            <option>Add a new one</option>
+          </select>
+          <input
+            [required]="categoryInput"
+            [formControlName]="'category'"
+            type="text"
+            class="home-select"
+            placeholder="Type here..."
+            [ngStyle]="{'display':categoryInput?'block':'none', 'color':'white'}">
+
+          <span class="home-label" style=" left: 2px; top: 46px;">County</span>
+          <select
+            [(ngModel)]="selectedCounty"
+            (change)="onCountySelected()"
+            [ngClass]="{'selectedCounty': isCountySelected}"
+            required
+            name="county"
+            [formControlName]="'county'"
+            class="home-select1">
+            <option value="" selected>Select your county</option>
+            <option *ngFor="let county of counties" [ngValue]="county">{{county}}</option>
+          </select>
+
+          <span class="home-label" style=" left: 350px; top: 46px;">City</span>
+          <select
+            [(ngModel)]="selectedCity"
+            [required]="!locationInput"
+            name="city"
+            (change)="onCitySelected()"
+            [ngClass]="{'selectedCity': isCitySelected}"
+            [formControlName]="'city'"
+            class="home-select2"
+          >
+            <option value="" selected>Select your city</option>
+            <option *ngFor="let city of cities[selectedCounty]" [ngValue]="city">{{city}}</option>
+          </select>
+
+          <span class="home-label" style=" left: 2px; top: 116px;">Location</span>
+          <select
+            [(ngModel)]="selectedLocation"
+            required
+            (click)="getLocations()"
+            name="location"
+            (change)="onLocationSelected()"
+            [ngClass]="{'selectedLocation': isLocationSelected}"
+            [formControlName]="'location'"
+            class="home-select3">
+            <option value="" selected disabled>Select location</option>
+            <option [hidden]="isCountySelected && isCitySelected" disabled>Select county and city</option>
+            <option *ngFor="let loc of locations" [ngValue]="loc.id">{{loc.name}}</option>
+            <option [hidden]="!isCountySelected || !isCitySelected"
+                    (click)="addLocation()" style="font-style: italic"> Add a new one
+            </option>
+          </select>
+
+
+          <span class="home-label" style=" left: 2px; top: 186px;">Date</span>
+          <input
+            matInput
+            type="date"
+            name="date"
+            [formControlName]="'date'"
+            required
+            class="home-textinput3 input "
+          />
+
+          <span class="home-label" style=" left: 162px; top: 186px;">Time</span>
+          <input
+            type="time"
+            required
+            name="time"
+            [formControlName]="'time'"
+            placeholder="00:00"
+            class="home-textinput4 input "
+          />
+
+          <span class="home-label" style=" left: 2px; top: 256px;">Price ticket</span>
+          <input
+            type="number"
+            min="0"
+            name="price"
+            [formControlName]="'ticketPrice'"
+            placeholder="Ticket Price"
+            class="home-text-ticket-price"
+          />
+          <span class="home-text-ticket-ron">RON</span>
+
+<!--          <span class="home-label" style=" left: 162px; top: 256px;">Discount ticket</span>-->
+
+<!--          <input-->
+<!--            min="0"-->
+<!--            max="100"-->
+<!--            type="number"-->
+<!--            name="discout"-->
+<!--            [formControlName]="'ticketDiscount'"-->
+<!--            placeholder="Discount"-->
+<!--            class="home-text-ticket-discount"-->
+<!--          />-->
+<!--          <span class="home-text-ticket-percentaje">%</span>-->
+
+          <span class="home-label" style=" left: 2px; top: 326px;">Select a photo</span>
+          <input
+            required
+            [formControlName]="'file'"
+            type="file"
+            placeholder="Select a photo"
+            class="home-textinputFile input "
+            (change)="onFileSelected($event)"
+          />
+
+          <button class="btn home-button button">Create event</button>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

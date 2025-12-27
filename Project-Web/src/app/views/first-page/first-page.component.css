@@ -1,0 +1,90 @@
+.home-container {
+  /*width: 100%;*/
+  /*display: flex;*/
+  /*overflow: auto;*/
+  /*min-height: 100vh;*/
+  /*align-items: center;*/
+  /*flex-direction: column;*/
+  /*justify-content: center;*/
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  /*overflow-y: auto;*/
+  display: flex;
+  box-shadow: 50px 50px 90px 100px #f9f9f9;
+  align-items: center;
+  border-width: 1px;
+  flex-direction: row;
+  justify-content: center;
+
+
+  background-image: url("~src/assets/images/snapedit_1681998057299.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.home-container1 {
+  width: 90%;
+  height: 92%;
+  border-radius: 10px;
+  background-color: rgba(52, 55, 71, 0.8);
+
+  display: flex;
+  flex-direction: row;
+
+}
+
+.divv{
+  display: flex;
+  flex-direction: column;
+}
+
+.filter{
+  margin-top: 25px;
+  /*color: #b7b6d7;*/
+  width: 235px;
+  height: 40px;
+  position: absolute;
+  box-shadow: 1px 1px 5px 0px #ffffff;
+  border-color: #ffffff;
+  background-color: #ffffff;
+  border-style: solid;
+  border-radius: 8px;
+}
+
+
+.mat-card-container{
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+.mat-card {
+  /*margin-left: 15px;*/
+  /*margin-right: 0px;*/
+  margin: 10px 15px;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px 0px  rgba(124, 130, 196,1);
+  background-color: rgba(124, 130, 196,1);
+  width: 15vw;
+  height: 45%;
+  /*margin-bottom: 20px;*/
+  overflow-y: auto;
+}
+
+.mat-card:hover {
+  scale: 1.05
+}
+
+
+.home-label {
+  margin-top: 5px;
+  width: 121px;
+  color: #b7b6d7;
+  position: absolute;
+  align-self: flex-end;
+}

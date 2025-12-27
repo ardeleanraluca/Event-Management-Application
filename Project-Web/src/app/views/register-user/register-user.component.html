@@ -1,0 +1,100 @@
+<div class="home-container">
+  <div class="home-container1">
+    <app-sidenav></app-sidenav>
+    <div class="home-container2">
+      <span class="home-login">
+        Create account
+      </span>
+      <img
+        alt="image"
+        src="/assets/images/Fun-With-Friends.png"
+        class="home-image"
+      />
+      <form [formGroup]="signUpForm" (ngSubmit)="onClick()" ngNativeValidate>
+        <div class="home-form">
+          <input
+            matInput
+            type="text"
+            required
+            name="firstName"
+            [formControlName]="'firstName'"
+            placeholder="First Name"
+            class="home-nume1 input"/>
+
+          <input
+            matInput
+            type="text"
+            required
+            name="lastName"
+            [formControlName]="'lastName'"
+            placeholder="Last Name"
+            class="home-nume2 input"/>
+
+          <select
+            [(ngModel)]="selectedCounty"
+            (change)="onCountySelected()"
+            [ngClass]="{'selectedCounty': isCountySelected}"
+            required
+            name="county"
+            [formControlName]="'county'"
+            class="home-select">
+            <option value="" selected>Select your county</option>
+            <option *ngFor="let county of counties">{{county}}</option>
+          </select>
+
+          <select
+            [(ngModel)]="selectedCity"
+            [required]="!cityInput"
+            name="city"
+            (change)="onCitySelected()"
+            [ngClass]="{'selectedCity': isCitySelected}"
+            [formControlName]="'city'"
+            class="signup-select-city"
+          >
+            <option value="" selected>Select your city</option>
+            <option *ngFor="let city of cities[selectedCounty]">{{city}}</option>
+            <option [hidden]="!isCountySelected">Add a new one</option>
+          </select>
+
+          <input
+            matInput
+            type="text"
+            required
+            name="email"
+            [formControlName]="'email'"
+            placeholder="Email"
+            class="home-textinput input"
+          />
+          <input
+            matInput
+            type="password"
+            required
+            name="password"
+            id="signup-password"
+            [formControlName]="'password'"
+            (change)="validatePassword()"
+            placeholder="Password"
+            class="home-textinput1 input"
+          />
+
+          <input
+            matInput
+            type="password"
+            required
+            name="repeatPassword"
+            id="signup-repeatPassword"
+            [formControlName]="'repeatPassword'"
+            (change)="validatePassword()"
+            placeholder="Repeat Password"
+            class="home-textinput3 input "
+          />
+          <button class="btn home-button button">Sign up</button>
+
+          <span class="home-text4">Already have an account?</span>
+          <a class="home-text" routerLink="/login">Login here</a>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

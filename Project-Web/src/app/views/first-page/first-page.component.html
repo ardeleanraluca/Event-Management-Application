@@ -1,0 +1,80 @@
+<div class="home-container">
+  <!--nav-->
+
+  <div class="home-container1">
+    <app-sidenav></app-sidenav>
+
+
+    <div>
+      <span class="home-label" style="margin-left: 16px">Filter by Category</span>
+      <select
+        style="margin-left: 16px"
+        [(ngModel)]="category"
+        name="category"
+        (change)="onSort()"
+        class="filter">
+        <option value="">All</option>
+        <option *ngFor="let category of categories">{{category}}</option>
+      </select>
+
+      <span class="home-label" style="margin-left: 285px">Filter by Date</span>
+      <select
+        [(ngModel)]="sortDate"
+        style="margin-left: 285px"
+        name="category"
+        (change)="onSort()"
+        class="filter">
+        <option value="">All</option>
+        <option value="Asc">Asc</option>
+        <option value="Desc">Desc</option>
+      </select>
+
+
+      <span class="home-label" style="margin-left: 554px">Filter by County</span>
+      <select
+        style="margin-left: 554px"
+        [(ngModel)]="county"
+        name="category"
+        (change)="onSort()"
+        class="filter">
+        <option value="">All</option>
+        <option *ngFor="let county of counties">{{county}}</option>
+      </select>
+
+
+      <span class="home-label" style="margin-left: 823px">Filter by City</span>
+      <select
+        style="margin-left: 823px"
+        [(ngModel)]="city"
+        name="category"
+        (change)="onSort()"
+        class="filter">
+        <option value="">All</option>
+        <option *ngFor="let city of cities[county]">{{city}}</option>
+      </select>
+
+
+    </div>
+
+    <div class="mat-card-container">
+
+      <mat-card class="mat-card" *ngFor="let event of events" (click)="goToEventDetails(event.id)"
+                style="cursor: pointer">
+        <mat-card-header>
+          <mat-card-title>{{event.name}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="event.imageString">
+
+        <mat-card-content>
+          <mat-card-subtitle>Date: {{event.date}}</mat-card-subtitle>
+          <mat-card-subtitle>Time: {{event.hour}}</mat-card-subtitle>
+          <mat-card-subtitle>Location: {{event.location.city}}, {{event.location.county}}</mat-card-subtitle>
+          <br>
+          <p>{{event.description}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+

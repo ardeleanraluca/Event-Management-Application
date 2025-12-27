@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-mdc-snack-bar-container {
+
+  --mat-mdc-snack-bar-button-color: #f47458;
+  /*--mdc-snackbar-container-color: rgba(52,55,71,0.9);*/
+  --mdc-snackbar-supporting-text-color: white;
+}
+
+.form-error-msg {
+  color: #f44336;
+  display: block;
+  padding: 5px 0;
+}
+
+::-ms-input-placeholder {
+  color: #b7b6d7;
+}
+
+::-webkit-input-placeholder {
+  color: #b7b6d7;
+}
+
+.datatable-header{
+
+  border-radius: 5px;
+  background: rgba(124, 130, 196,1);
+}
+
+.datatable-row-even{
+
+}
+.datatable-row-odd{
+  background: rgba(160, 164, 222, 0.5);
+
+}
+
+
+

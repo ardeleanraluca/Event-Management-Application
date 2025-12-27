@@ -1,0 +1,50 @@
+<div class="home-container">
+  <div class="home-container1">
+    <app-sidenav></app-sidenav>
+
+    <div class="home-container2">
+
+      <ngx-datatable
+        [rows]="organizers"
+        [columnMode]="'force'"
+        [headerHeight]="40"
+        [footerHeight]="40"
+        [limit]="20"
+        [rowHeight]="'auto'"
+      >
+
+        <ngx-datatable-column prop="firstName" name="First Name" [flexGrow]="1" [maxWidth]="300">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.firstName }}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column prop="lastName" name="Last name" [flexGrow]="1" [maxWidth]="300">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.lastName }}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column prop="email" name="Email" [flexGrow]="1" [maxWidth]="300">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.email }}
+          </ng-template>
+        </ngx-datatable-column>
+
+
+        <ngx-datatable-column name="Actions" [flexGrow]="1" [sortable]="false" [maxWidth]="100">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <!--            <button mat-icon-button color="primary" (click)="deleteLocation(row.id)" style="margin-top: -18px">-->
+            <!--              <i class="bi bi-pencil-fill" style="color:rgba(160,164,222,0.8);font-size: 20px;"></i>-->
+            <!--            </button>-->
+            <button mat-icon-button color="primary" (click)="deleteOrganizer(row.id)" style="margin-top: -18px">
+              <i class="bi bi-trash3-fill" style="color: #f44336; font-size: 20px;"></i>
+            </button>
+          </ng-template>
+        </ngx-datatable-column>
+
+
+      </ngx-datatable>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+.home-container {
+  /*width: 100%;*/
+  /*display: flex;*/
+  /*overflow: auto;*/
+  /*min-height: 100vh;*/
+  /*align-items: center;*/
+  /*flex-direction: column;*/
+  /*justify-content: center;*/
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  /*overflow-y: auto;*/
+  display: flex;
+  box-shadow: 50px 50px 90px 100px #f9f9f9;
+  align-items: center;
+  border-width: 1px;
+  flex-direction: row;
+  justify-content: center;
+
+
+  background-image: url("~src/assets/images/snapedit_1681998057299.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.home-container1 {
+  width: 90%;
+  height: 92%;
+  border-radius: 10px;
+  background-color: rgba(52, 55, 71, 0.8);
+
+  display: flex;
+  flex-direction: row;
+
+}
+
+.mat-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /*overflow-y: auto;*/
+  width: 100%;
+}
+
+.mat-card {
+  color: white;
+  border-radius: 10px 0px 0px 10px;
+  box-shadow: 2px 2px 5px 0px rgba(124, 130, 196,0.8);
+  background-color: rgba(124, 130, 196,0.8);
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.mat-card-tickets {
+  color: white;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0 0 20px rgb(255, 255, 255);
+  background-color: rgba(52, 55, 71, 0.6);
+  width: 100%;
+  height:auto;
+  display: flex;
+
+  flex-wrap: wrap;
+
+}
+
+.container-ticket{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-ticket {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+.box-image {
+  height: 350px;
+  width: 500px;
+  border-radius: 10px;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+

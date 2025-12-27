@@ -1,0 +1,40 @@
+<div class="home-container">
+  <div class="home-container1">
+    <app-sidenav></app-sidenav>
+    <div class="home-container2">
+    <span class="home-login">
+        Log in to you account
+      </span>
+      <img
+        alt="image"
+        src="assets/images/Fun-With-Friends.png"
+        class="home-image"
+      />
+      <form [formGroup]="logInForm" (ngSubmit)="onClick()" ngNativeValidate>
+        <div class="home-form">
+          <input
+            matInput
+            type="text"
+            required
+            name="email"
+            [formControlName]="'email'"
+            value=""
+            placeholder="Email"
+            class="home-textinput input"
+          />
+          <input
+            name="password"
+            type="password"
+            [formControlName]="'password'"
+            required
+            placeholder="Password"
+            class="home-textinput1 input"
+          />
+          <button type="submit" class="btn home-button">Log in</button>
+          <span class="home-text">Don’t have an account?</span>
+          <a class="home-text1" routerLink="/sign-up">Sign up here</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

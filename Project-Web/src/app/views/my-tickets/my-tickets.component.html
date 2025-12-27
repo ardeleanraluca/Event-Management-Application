@@ -1,0 +1,66 @@
+<div class="home-container">
+
+  <div class="home-container1">
+    <app-sidenav></app-sidenav>
+
+    <div class="tickets-container">
+      <div class="ticket" *ngFor="let ticket of ticketsDetails">
+        <div class="ticket-content-first">
+          <div class="first-left-container">
+            <div class="first-left-container-price">
+              {{ticket.price}} RON
+            </div>
+            <ngx-barcode6 class="ngxBarcode1"
+                          [bc-background]="'none'"
+                          [bc-width]="1.2"
+                          [bc-height]="30"
+                          [bc-value]="generateBarcodeValue(ticket)"
+                          [bc-display-value]="false"
+                          [bc-format]="barcodeFormat"
+            ></ngx-barcode6>
+            <span style="margin-top: -20px; font-size: 12px"> {{generateBarcodeValue(ticket)}}</span>
+
+
+          </div>
+
+          <div class="first-inner-container">
+            <b>{{ticket.eventDto?.name}}</b>
+            <div class="first-inner-container-image" [style.background-image]="'url(' + this.ticket.eventDto?.imageString + ')'">
+            </div>
+          </div>
+
+          <div class="first-right-container">
+            <p>Date: {{ticket.eventDto?.date}}</p>
+            <p>Time: {{ticket.eventDto?.hour}}</p>
+            <p>Category event: {{ticket.eventDto?.category}}</p>
+            <p></p>
+            <b>{{ticket.eventDto?.location?.name}}, {{ticket.eventDto?.location?.address}}</b>
+            <b>{{ticket.eventDto?.location?.city}}, {{ticket.eventDto?.location?.county}}</b>
+          </div>
+
+        </div>
+
+        <div class="ticket-content-second">
+          <div style="transform: scale(1.025) rotate(270deg); margin-top: -10px">
+            <b>{{ticket.eventDto?.name}}</b>
+            <p>{{ticket.eventDto?.date}}/{{ticket.eventDto?.hour}}</p>
+            <ngx-qrcode
+              [cssClass]="'qrcode'"
+              [errorCorrectionLevel]='NgxQrcodeErrorCorrectionLevels.QUARTILE'
+              [width]="180"
+              [margin]="1"
+              [value]="generateBarcodeValue(ticket)">
+            </ngx-qrcode>
+
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+

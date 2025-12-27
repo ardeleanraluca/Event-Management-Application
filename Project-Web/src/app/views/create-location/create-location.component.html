@@ -1,0 +1,79 @@
+<div class="home-container">
+  <div class="home-container1">
+    <app-sidenav></app-sidenav>
+    <div class="home-container2">
+      <span class="home-login">
+        Create new location
+      </span>
+      <img
+        alt="image"
+        src="/assets/images/Fun-With-Friends.png"
+        class="home-image"
+      />
+      <form [formGroup]="createLocationForm" (ngSubmit)="onClick()" ngNativeValidate>
+
+        <div class="home-form" >
+
+          <span class="home-label" style=" left: 2px; top: -6px;">Name</span>
+          <input
+            matInput
+            type="text"
+            required
+            name="name"
+            [formControlName]="'name'"
+            placeholder="Name"
+            class="home-nume1 input"/>
+
+          <span class="home-label" style=" left: 2px; top: 64px;">Address</span>
+          <input
+            matInput
+            type="text"
+            required
+            name="address"
+            [formControlName]="'address'"
+            placeholder="Address"
+            class="home-nume2 input"/>
+
+          <span class="home-label" style=" left: 2px; top: 134px;">County</span>
+          <select
+            [(ngModel)]="selectedCounty"
+            (change)="onCountySelected()"
+            [ngClass]="{'selectedCounty': isCountySelected || haveQueryParam}"
+            required
+            name="county"
+            [formControlName]="'county'"
+            class="home-select">
+            <option value="" [selected]="!haveQueryParam" [ngValue]="undefined">Select county</option>
+            <option *ngFor="let county of counties" [ngValue]="county">{{county}}</option>
+          </select>
+
+          <span class="home-label" style=" left: 2px; top: 204px;">City</span>
+          <select
+            [(ngModel)]="selectedCity"
+            (change)="onCitySelected()"
+            [ngClass]="{'selectedCity': isCitySelected || haveQueryParam}"
+            required
+            name="city"
+            [formControlName]="'city'"
+            class="home-select1">
+            <option value="" [selected]="!haveQueryParam" [ngValue]="undefined">Select city</option>
+            <option *ngFor="let city of cities[selectedCounty]" [ngValue]="city">{{city}}</option>
+          </select>
+
+          <span class="home-label" style=" left: 2px; top: 274px;">Number of seats</span>
+          <input
+            matInput
+            required
+            name="noSeats"
+            type="number"
+            min="0"
+            [formControlName]="'noSeats'"
+            placeholder="No of seats"
+            class="noSeats input"/>
+
+          <button class="btn home-button button">Create location</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

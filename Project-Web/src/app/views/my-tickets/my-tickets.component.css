@@ -1,0 +1,168 @@
+.home-container {
+  /*width: 100%;*/
+  /*display: flex;*/
+  /*overflow: auto;*/
+  /*min-height: 100vh;*/
+  /*align-items: center;*/
+  /*flex-direction: column;*/
+  /*justify-content: center;*/
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  /*overflow-y: auto;*/
+  display: flex;
+  box-shadow: 50px 50px 90px 100px #f9f9f9;
+  align-items: center;
+  border-width: 1px;
+  flex-direction: row;
+  justify-content: center;
+
+
+  background-image: url("~src/assets/images/snapedit_1681998057299.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.home-container1 {
+  width: 90%;
+  height: 92%;
+  border-radius: 10px;
+  background-color: rgba(52, 55, 71, 0.8);
+
+  display: flex;
+  flex-direction: row;
+
+  overflow-y: auto;
+
+}
+
+.tickets-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  overflow-y: auto;
+
+}
+
+.ticket {
+  width: 80%;
+  height: 210px;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.ticket:hover {
+  scale: 1.05;
+}
+
+.ticket-content-first {
+  height: 100%;
+  width: 60%;
+  background-color: #d6d6f5;
+
+  border-radius: 5px 20px 20px 5px;
+  border-right: dashed 2px black;
+  display: flex;
+  justify-content: space-between; /* To create space between left and right containers */
+  align-items: center;
+}
+
+.first-inner-container {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*justify-content: space-between;*/
+  z-index: 2;
+  height: 95%;
+  width: 38%;
+
+
+}
+
+.first-inner-container-image {
+  margin-bottom: 3px;
+  z-index: 1;
+  border: 2px solid rgba(124, 130, 196, 1);;
+
+
+  height: 100%;
+  width: 97%;
+  border-radius: 100px 100px 100px 100px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.first-left-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 2;
+  height: 95%;
+  width: 24%;
+}
+
+.first-left-container-price {
+  border: 2px solid rgba(124, 130, 196, 1);;
+  display: flex;
+  justify-content: center; /* To create space between left and right containers */
+  align-items: center;
+  /*margin-left: 50px;*/
+  margin-top: 45px;
+
+  z-index: 1;
+  height: 30%;
+  width: 50%;
+  border-radius: 100px 100px 100px 100px;
+  background-color: white;
+}
+
+.first-right-container {
+  margin-left: 15px;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 2;
+  height: 95%;
+  width: 39%;
+}
+
+
+.ticket-content-second {
+  border-left: dashed 2px black;
+  border-radius: 20px 5px 5px 20px;
+
+  height: 100%;
+  width: 30%;
+  background-color: #d6d6f5;
+
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between; /* To create space between left and right containers */
+  align-items: center;
+}
+
+
+.ngxBarcode1 {
+  margin-left: 18px;
+  margin-bottom: -30px;
+}
+
+.barcode-value {
+  font-size: 12px;
+
+}

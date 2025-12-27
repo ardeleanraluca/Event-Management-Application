@@ -1,0 +1,69 @@
+<div class="home-container">
+  <div class="home-container1">
+    <app-sidenav></app-sidenav>
+    <div class="home-container2">
+      <span class="home-login">
+        Create new organizer account
+      </span>
+      <img
+        alt="image"
+        src="/assets/images/Fun-With-Friends.png"
+        class="home-image"
+      />
+      <form [formGroup]="signUpForm" (ngSubmit)="onClick()" ngNativeValidate>
+        <div class="home-form">
+          <input
+            matInput
+            type="text"
+            required
+            name="firstName"
+            [formControlName]="'firstName'"
+            placeholder="First Name"
+            class="home-nume1 input"/>
+
+          <input
+            matInput
+            type="text"
+            required
+            name="lastName"
+            [formControlName]="'lastName'"
+            placeholder="Last Name"
+            class="home-nume2 input"/>
+
+          <input
+            matInput
+            type="text"
+            required
+            name="email"
+            [formControlName]="'email'"
+            placeholder="Email"
+            class="home-textinput input"
+          />
+          <input
+            type="password"
+            required
+            name="password"
+            id="signup-password-organizer"
+            [formControlName]="'password'"
+            (change)="validatePassword()"
+            placeholder="Password"
+            class="home-textinput1 input"
+          />
+
+          <input
+            type="password"
+            required
+            name="repeatPassword"
+            id="signup-repeatPassword-organizer"
+            [formControlName]="'repeatPassword'"
+            (change)="validatePassword()"
+            placeholder="Repeat Password"
+            class="home-textinput3 input "
+          />
+
+          <button class="btn home-button">Create account</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

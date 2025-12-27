@@ -1,0 +1,46 @@
+<div class="sidenav" [ngClass]="{'sidenav-collapsed':collapsed}">
+  <div class="logo-container">
+    <button class="logo" (click)="toggleCollapse()">EV</button>
+    <div class="logo-text" *ngIf="collapsed">ents App</div>
+    <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
+      <i class="fal fa-times close-icon"></i>
+    </button>
+  </div>
+
+  <ul class="sidenav-nav">
+    <li class="sidenav-nav-item" *ngFor="let data of navData">
+      <a class="sidenav-nav-link" [routerLink]="[data.routeLink]" routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}">
+        <i class="sidenav-link-icon" [class]="data.icon"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+      </a>
+    </li>
+  </ul>
+
+
+  <div class="sidenav-nav" style="justify-content: flex-end;">
+<!--    <div class="sidenav-nav-item" style="justify-content: flex-end;">-->
+<!--      <a class="sidenav-nav-link" [routerLink]="'/home'" *ngIf="logged" style="margin-bottom: -10px;">-->
+<!--        <i class="sidenav-link-icon" [class]="'bi bi-person'" style="margin-left: 5px;"></i>-->
+<!--        <span class="sidenav-link-text" *ngIf="collapsed">My profile</span>-->
+<!--      </a>-->
+<!--    </div>-->
+
+    <div class="sidenav-nav-item">
+      <a class="sidenav-nav-link" [routerLink]="'/login'" routerLinkActive="active" *ngIf="!logged"
+         [routerLinkActiveOptions]="{exact: true}">
+        <i class="sidenav-link-icon" [class]="'bi bi-box-arrow-in-right'"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">Login/Register</span>
+      </a>
+    </div>
+
+    <div class="sidenav-nav-item">
+      <a class="sidenav-nav-link" [routerLink]="'/home'" *ngIf="logged" (click)="signOut()">
+        <i class="sidenav-link-icon" [class]="'bi bi-box-arrow-in-left'"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">Sign Out</span>
+      </a>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,66 @@
+<div class="home-container">
+  <div class="home-container1">
+    <app-sidenav></app-sidenav>
+    <div class="home-container2">
+
+      <button class="btn btn-secondary"
+              style="margin-top: 20px; margin-bottom: 20px; margin-left: 920px; background-color: #6a64ad"
+              (click)="addLocation()">Add location
+      </button>
+
+      <ngx-datatable
+        [rows]="locations"
+        [columnMode]="'force'"
+        [headerHeight]="40"
+        [footerHeight]="40"
+        [limit]="20"
+        [rowHeight]="'auto'"
+      >
+
+        <ngx-datatable-column prop="name" name="Name" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.name }}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column prop="county" name="County" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.county }}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column prop="city" name="City" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.city }}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column prop="address" name="Address" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.address }}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column prop="noseats" name="NoSeats" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.noSeats }}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Actions" [flexGrow]="1" [sortable]="false">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+<!--            <button mat-icon-button color="primary" (click)="deleteLocation(row.id)" style="margin-top: -18px">-->
+<!--              <i class="bi bi-pencil-fill" style="color:rgba(160,164,222,0.8);font-size: 20px;"></i>-->
+<!--            </button>-->
+            <button mat-icon-button color="primary" (click)="deleteLocation(row.id)" style="margin-top: -18px">
+              <i class="bi bi-trash3-fill" style="color: #f44336; font-size: 20px;"></i>
+            </button>
+          </ng-template>
+        </ngx-datatable-column>
+
+
+      </ngx-datatable>
+
+    </div>
+  </div>
+</div>
