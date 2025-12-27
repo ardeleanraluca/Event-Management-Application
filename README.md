@@ -30,11 +30,15 @@ The next most general functionality is aimed at users who are **not guests**, na
 #### _Organizer_
 
 - add the event he organizes in the application 
+
 - has a section where he can see and edit the organized events
   
   #### _Admin_
+
 - create accounts for the organizers as a result of an agreement between the two.
+
 - delete organizer accounts and associated events if the agreement between the two is no longer valid.
+
 - has access to details about organizers and events.
 
 ## Database diagram
